@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Hello</h2>
+    <script>
+        var user = {
+            nume : 'ion',
+            parola : 'gg',
+            afisare : function(){
+                console.log('salut sunt ' + this.nume + ' si parola mea ii: ' + this.parola)
+            }
+        };
+        
+        var obiectTampit = {
+            nume : 'bob',
+            pret : 200,
+            salut : function(){
+                console.log("SALUT SALUT MUIE SALUT");
+            }
+        }
+
+        function functieTampita(){
+            console.log('o functie de toata muia');
+        }
+
+        user.afisare();
+        obiectTampit.salut();
+        functieTampita();
+
+        // var interval = setInterval(functieTampita, 1500);
+        // var interval = setInterval(obiectTampit.salut, 1500);
+        // var interval = setInterval(user.afisare, 1500);  // SE PIERDE THIS
+
+        // var interval = setInterval(function(){
+        //     user.afisare(); // apelam functia pe care dorim s-o executam la intervalul 1500 explicit, pe obiectul de care tine
+        // }, 1500);
+
+
+        var functia = user.afisare.bind(user); // bind releaga functia la obiectul de care apartine
+        var interval = setInterval(functia, 1500);
+    </script>
+</body>
+</html>

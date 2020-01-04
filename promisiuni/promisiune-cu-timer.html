@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Promisiune cu timer</h2>
+
+    <script>
+        // var intervalul = setInterval(function(){
+        //     console.log('asta se repeta!')
+        //     console.log('------------------')
+        // }, 3000);
+
+
+        var promisiune = new Promise(function (resolve, reject) {
+            var timeout = setTimeout(function () {
+                console.log('timeout over');
+                console.log('--------------');
+                resolve('am terminat');
+            }, 5000);
+        });
+
+        promisiune.then(function(x){
+            console.log('putem sa mai adaugam cod aici, o sa se execute dupa timeout')
+            console.log('x este: ', x);
+        })
+
+    </script>
+
+</body>
+
+</html>
