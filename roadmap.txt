@@ -57,3 +57,6 @@ git pull:
     git add .
     git commit -m "whatever"
     git pull 
+
+
+========================
