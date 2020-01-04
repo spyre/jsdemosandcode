@@ -19,7 +19,15 @@
 
 
 ---- git howto ----
-https://git-scm.com/downloads 
+STEP 1: https://git-scm.com/downloads 
+
+STEP 2:  
+
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+
+STEP 3:
+cont pe github, fara login with facebook / google / etc.
 
 
 - in folder-ul pe care vrem sa-l transformam intr-un repository:
