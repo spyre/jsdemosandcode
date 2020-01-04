@@ -33,3 +33,11 @@ git commit -m "primul save"    # crearea unui backup
 
 ---------------
 git log # ca sa vedem ce commit-uri avem
+
+
+git remote -v # ca sa vedem de ce URL este legat al nostru repository local
+
+git remote add origin https://github.com/spyre/jsdemosandcode.git    # ii zicem repository-ului local ca e legat de https://github.com/spyre/jsdemosandcode.git
+
+git push -u origin master  # trimite codul local (tot ce a fost committed) la https://github.com/spyre/jsdemosandcode.git
+
