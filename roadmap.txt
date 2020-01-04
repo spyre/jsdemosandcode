@@ -49,3 +49,11 @@ git remote add origin https://github.com/spyre/jsdemosandcode.git    # ii zicem 
 
 git push -u origin master  # trimite codul local (tot ce a fost committed) la https://github.com/spyre/jsdemosandcode.git
 
+-----------------
+
+ca sa iei datele noi (modificate pe un alt calculator), avem nevoie de
+git pull:
+
+    git add .
+    git commit -m "whatever"
+    git pull 
