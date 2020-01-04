@@ -30,3 +30,6 @@ git status - ce fisiere sunt monitorizate (verde), ce fisiere sunt ignorate (ros
 git add roadmap.txt
 git add .    # adauga toate fisierele si directoarele 
 git commit -m "primul save"    # crearea unui backup
+
+---------------
+git log # ca sa vedem ce commit-uri avem
