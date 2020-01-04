@@ -1,0 +1,22 @@
+- functions X
+- callbacks X
+- cookies VS localStorage X
+- map, filter, reduce 
+- lambda
+- rest, spread
+- cloning objects
+- prototype
+- bind
+- apply, call
+- recursivitate
+- templates
+- promises X 
+- package management
+- classes
+- exceptions (try - catch)
+- 1 framework of choice - Angular / Vue / React 
+- security     
+
+
+---- git howto ----
+https://git-scm.com/downloads 

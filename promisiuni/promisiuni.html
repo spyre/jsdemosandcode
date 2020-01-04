@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="node_modules/"></script> -->
+</head>
+
+<body>
+    <h2>Promisiuni</h2>
+    <script>
+        // https://jsonplaceholder.typicode.com/todos
+
+        var todos = [];
+
+        console.log('step 1');
+        var promisiuneTodos = new Promise(function (resolve, reject) {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/todos',
+                success: function (x) {
+                    console.log('datele din success: ', x);
+                    todos = x;
+                    resolve('servus boss');
+                },
+                error : function(){
+                    alert('Nu am putut prelua datele de la server');
+                }
+            });
+        })
+
+        console.log('step 2');
+
+        
+        promisiuneTodos.then(function (lol){
+            console.log('datele din TODOS: ', todos);
+            console.log('lol este: ', lol);
+        });
+        promisiuneTodos.catch(function(){
+            console.log('nu e okay');
+        })
+        
+
+        console.log('step 3');
+
+        function processInfo(arr) {
+            console.log('processing: ', arr);
+            // document.getElementById('...').innerHTML += ...
+        }
+        // .then(...)
+        console.log('end script');
+
+    </script>
+</body>
+
+</html>

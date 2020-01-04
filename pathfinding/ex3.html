@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <h2>Filesystem</h2>
+    <ul>
+        <li>C:/ <ul>
+                <li>Program Files</li>
+                <li>Windows</li>
+            </ul>
+        </li>
+        <li>D:/ <ul>
+                <li>pr0n <ul>
+                        <li>
+                            Midget
+                        </li>
+                        <li>MILF <ul>
+                                <li>Oldje</li>
+                                <li>Jenna haze</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Games <ul>
+                        <li>StarCraft
+                            <ul>
+                                <li>sc.exe</li>
+                                <li>sc.dll</li>
+                            </ul>
+
+                        </li>
+                        <li>SC2</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>A:/</li>
+    </ul>
+
+
+    <ul id="ierarhie-companie"></ul>
+
+    <script>
+
+        function turnRed(element) {
+            if (element.children.length == 0) {
+                element.style.color = 'red';
+            }
+            for (var copil of element.children) {
+                // if(copil.children.length == 0){
+                //     copil.style.color = 'red';
+                // }
+                turnRed(copil);
+
+            }
+        }
+
+        var lista = document.querySelector('ul');
+        turnRed(lista);
+
+
+        class Angajat {
+
+            constructor(nume, salariu) {
+                this.nume = nume;
+                this.salariu = salariu;
+            }
+
+        }
+
+        function AngajatF(nume, salariu) {
+            this.nume = nume;
+            this.salariu = salariu;
+
+            return 'kek';
+        }
+
+        // 
+        var a1 = new Angajat('boris', 3000.0);
+        var a2 = new AngajatF('vladislav', 4000.0); // can be tricky
+        var a3 = new Angajat('alice', 5000.0);
+        var a4 = new Angajat('matt', 3434.0);
+        var a5 = new Angajat('bill', 3333.3);
+        var a6 = new Angajat('audia', 2222.0);
+
+
+        a1.angajati = [a2, a3];
+
+        a3.angajati = [a4, a5];
+        a5.angajati = [a6];
+
+
+        // console.log(a1);
+        // console.log(a2);
+        console.log(a1);
+
+        // TODO: please implement
+        function generareLista(angajat){
+            // return '<li>....</li>'
+            return null; 
+        }
+
+        var divComp = document.getElementById('ierarhie-companie');
+        divComp.innerHTML = generareLista(a1); // '<ul><li>Boris<ul><li>Vladislav</li><li>Alice<ul><li>Bill.....'
+
+        // TODO (2) angajatii care nu au la randul lor alti angajati de afisat cu verde
+
+    </script>
+
+</body>
+
+</html>

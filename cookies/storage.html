@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Hello storage</h2>
+
+    <div id="rezultat">REZULTAT</div>
+
+    Informatia: <input id="info"><br>
+    <button onclick="saveInfo()">Save info</button>
+
+
+    <script>
+        function saveInfo(){
+            var informatia = document.getElementById('info').value;
+            localStorage.setItem('INFORMATIA', informatia);
+        }
+        
+    </script>
+
+    <script>
+        if(localStorage.getItem('INFORMATIA')){
+            document.getElementById('rezultat').innerHTML = localStorage.getItem('INFORMATIA');
+        }
+    </script>
+
+</body>
+</html>

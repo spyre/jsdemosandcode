@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Useri</h2>
+
+
+
+    <ul id="lista-useri">
+
+    </ul>
+
+    <h3>User nou (register)</h3>
+    Username: <input id="in-pentru-username"><br>
+    Password: <input id="in-pentru-parola"><br>
+    <button onclick="saveUser()">Save user / register</button>
+
+    <!-- <button onclick="incarcaUseri()">Incarca useri</button> -->
+
+    <script>
+        var useri = [];
+        // http://localhost:3000/users
+
+        function incarcaUseri() {
+            $.ajax({
+                url: 'http://localhost:3000/users',
+                method: 'get',
+                success: function (d) {
+                    console.log('prima informatie: ', d[0])
+                    console.log('am incarcat datele: ', d);
+                    useri = d;
+                    console.log('user-ii incarcati sunt: ', useri);
+                    afisareUseriLista(useri);
+                }
+            });
+        }
+
+        incarcaUseri();
+        
+
+        function saveUser() {
+            console.log('salvam un user');
+            var numeUtilizator = document.getElementById('in-pentru-username').value;
+            var parolaUtilizator = document.getElementById('in-pentru-parola').value;
+            // console.log('salvam user-ul: ' + numeUtilizator + ' cu parola: ' + parolaUtilizator);
+
+            var obiectUser = {
+                username: numeUtilizator,
+                password: parolaUtilizator
+            };
+            console.log('salvam user-ul: ', obiectUser);
+
+            $.ajax({
+                url: 'http://localhost:3000/users',
+                method: 'post', // ca sa sugeram server-ului sa salveze un user
+                data: obiectUser, // ce sa salveze server-ul
+                success: function (date) {
+                    console.log('dupa ce am salvat, primim datele: ', date);
+                    alert('am salvat user-ul cu succes')
+                    document.getElementById('in-pentru-username').value = '';
+                    document.getElementById('in-pentru-parola').value = '';
+
+                    incarcaUseri(); // ca sa apara si ala salvat nou
+                }
+
+            });
+        }
+
+
+        function afisareUseriLista(arrayUseri) {
+            document.getElementById('lista-useri').innerHTML = '';
+            // de fiecare data cand este apelata functia asta, noii (vechii) useri sunt
+            // append-uiti la sfarsitul listei
+            for (let u of arrayUseri) {
+                console.log('u este: ', u);
+                $('#lista-useri').append(`<li>${u.id} ${u.username} ${u.password} <button onclick="stergeUser(${u.id})">Delete</button></li>`);
+            }
+        }
+    </script>
+
+    <script>
+    
+        // http://localhost:3000/users/3   DELETE
+        function stergeUser(id){
+            console.log('stergem un user: '+ id)
+            $.ajax({
+                url : 'http://localhost:3000/users/' + id,
+                method : 'delete',
+                success : function(x){
+                    console.log('am sters cu succes!')
+
+
+                    // TODO: de incercat sa scoatem elementul pe care dorim sa-l stergem din useri cu filter
+                    // incarcaUseri();
+                    var useriFaraAlaSters = [];
+                    for(var usr of useri){
+                        if(usr.id == id){
+                            // do nothing
+                            continue;
+                        }
+                        useriFaraAlaSters.push(usr);
+                    }
+                    console.log('useri: ', useri);
+                    console.log('useri fara ala sters: ', useriFaraAlaSters);
+                    useri = useriFaraAlaSters; // !!! daca afisareUseriLista functioneaza pe baza lui useri, trebuie sa ne asiguram ca useri e okay
+                    afisareUseriLista(useriFaraAlaSters);
+                }
+            });
+        }
+
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Demo stergeri</h2>
+
+    <script>
+
+        var useri = [
+            {
+                "id": 1,
+                "username": "Alice",
+                "password": "highschool",
+                salariu : 2000
+            },
+            {
+                "username": "vasile",
+                "password": "3333",
+                "id": 6,
+                salariu : 5000
+            },
+            {
+                "username": "bill",
+                "password": "1324",
+                "id": 7,
+                salariu : 5500
+            },
+            {
+                "username": "mill",
+                "password": "3125",
+                "id": 8,
+                salariu : 6000
+            }
+        ];
+
+        function deleteUser(id) {
+            var arrayNou = [];
+            for (var usr of useri) {
+                if(usr.id == id){
+                    continue;
+                }
+                arrayNou.push(usr);
+            }
+            return arrayNou;
+        }
+
+        function deleteUserSplice(id, arr){
+            var userDeSters = null;
+            for(var usr of useri){
+                if(usr.id == id){
+                    userDeSters = usr;
+                    break;
+                }
+            }
+            console.log('am gasit user-ul: ', userDeSters);
+            console.log('se afla pe pozitia: ', arr.indexOf(userDeSters));
+            arr.splice(arr.indexOf(userDeSters), 1); // de pe pozitia pe care l-am gasit pe dude vrem sa stergem 1 user
+        }
+
+        // useri = deleteUser(6);
+        // useri.splice(1, 2);
+        // deleteUserSplice(6, useri);
+
+        // useri = useri.filter(x => x.id != 6);
+
+        // TODO: use filter ca sa stergem toti user-ii care nu au minim 5 litere in username
+        // TODO: use filter ca sa stergem toti user-ii care nu au cel putin 5 caractere in password
+        // TODO: use filter ca sa stergem toti user-ii care ori au mai putin de 5 caractere in username ori au id-ul peste 4
+        // TODO: de folosit filter ca sa scoate toti user-ii care au salariul mai mic de 5000
+
+        // var useriSaraci = useri.filter(); 
+        console.log('userii sunt: ', useri);
+
+    </script>
+
+</body>
+
+</html>

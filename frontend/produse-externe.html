@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+     <!-- import jQuery = $ -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <h2>Produse</h2>
+    <script>
+    
+        var produse = [];
+
+
+        // 1. definire functii cu un param
+        function preiaDate(date){ // functie care ia un parametru
+            console.log('am preluat date: ', date);
+        }
+
+        function test(x){
+            console.log('TESTUL: ', x);
+        }
+
+        // preiaDate('kek'); // putem apela functiile direct, but this is of no use
+        // preiaDate(1000);
+
+        // 2. obiect json configurare
+            // - de unde luam datele
+            // - legam functia cu 1 param pe care am definit-o
+        var configurare = {
+            url : 'http://localhost:3000/products',
+            success : preiaDate  // trebuie sa-i spunem lui jQuery ce sa facem cu datele
+                    // printr-o functie care ia un parametru => 
+                    // datele care vin de la 'url' sunt puse in 'date' (parametrul functiei)
+        };
+
+        // 3. apelam functia ajax cu obiectul configurare
+        $.ajax(configurare);
+
+
+        // request ajax 'dintr-un foc'
+        $.ajax({
+            url : 'http://www.apilayer.net/api/live?access_key=010e84490e684d3b439777ec8735cedf&currencies=EUR,RON,GBP',
+            success : function(dt){
+                console.log('datele currency: ', dt);
+            }
+        });
+
+    </script>
+</body>
+</html>

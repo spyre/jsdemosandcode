@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <h2>SI MAI MULTE PROMISIUNI</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Completed</th>
+                <th>User name</th>
+            </tr>
+        </thead>
+        <tbody id="tbody-pentru-todos">
+
+        </tbody>
+    </table>
+
+    <script>
+
+        var todos = [];
+        var users = [];
+
+
+
+
+
+        // $.ajax({
+        //     url: 'https://jsonplaceholder.typicode.com/users',
+        //     success: function (users) {
+        //         $.ajax({
+        //             url: 'https://jsonplaceholder.typicode.com/todos',
+        //             success: function (todos) {
+        //                 console.log('users: ', users)
+        //                 console.log('todos before: ', todos)
+        //                 for (var todo of todos) {
+        //                     // todo.userComplet = 
+        //                     for (var usr of users) {
+        //                         if (usr.id == todo.userId) {
+        //                             todo.userComplet = usr;
+        //                             break;
+        //                         }
+        //                     }
+        //                 }
+        //                 console.log('todos after: ', todos)
+        //                 for (var todo of todos) {
+        //                     // TODO: please dispay in table
+        //                 }
+        //             }
+        //         });
+        //     }
+        // });
+
+        var promisiuneTodos = new Promise(function (resolve, reject) {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/todos',
+                success: function (xtodos) {
+                    todos = xtodos;
+                    resolve(todos);
+                }
+            });
+        });
+
+        var promisiuneUsers = new Promise(function (resolve, reject) {
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/users',
+                success: function (xusers) {
+                    users = xusers;
+                    resolve(users);
+                }
+            });
+        });
+
+        Promise.all([promisiuneTodos, promisiuneUsers]).then(function () {
+            console.log('am incarcat si todo-urile si userii');
+            console.log('todos: ', todos);
+            console.log('users: ', users);
+            for (var todo of todos) {
+                // todo.userComplet = 
+                for (var usr of users) {
+                    if (usr.id == todo.userId) {
+                        todo.userComplet = usr;
+                        break;
+                    }
+                }
+            }
+            console.log('todos after: ', todos)
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

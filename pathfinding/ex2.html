@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        ul li:nth-child(2) ul li:nth-child(1){
+            color: red;
+        }
+
+        a:hover{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>meniu</h2>
+    <a href="https://www.pizzahut.ro">Pizzahut</a>
+
+    <ul>
+        <li>Mancaruri
+            <ul>
+                <li>Pizza</li>
+                <li>Pasta</li>
+
+            </ul>
+        </li>
+        <li>Bauturi
+            <ul>
+                <li>Alcoolice</li>
+                <li>Frizante</li>
+                <li>Racoritoare</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        console.log(document.querySelector('ul li:nth-child(2) ul li:nth-child(1)'))
+        document.querySelector('ul li:nth-child(2) ul li:nth-child(1)').style.color = 'green';
+        document.querySelector('ul').children[1].children[0].children[0].style.color = 'purple';
+    </script>
+</body>
+
+</html>

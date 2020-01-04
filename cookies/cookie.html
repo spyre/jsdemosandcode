@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="functii.js"></script>
+</head>
+
+<body>
+    <h2>Cookies</h2>
+
+
+    Mesaj: <input id="mesaj"><br>
+    <button onclick="saveMessage()">Salveaza mesaj</button>
+
+
+    <div id="div-prezentare-mesaj">AICI APARE MESAJUL</div>
+
+    <script>
+
+        function saveMessage() {
+            var inputul = document.getElementById('mesaj');
+            var mesajul = inputul.value;
+            console.log('mesajul este: ' + mesajul);
+            document.getElementById('div-prezentare-mesaj').innerHTML = mesajul;
+            setCookie('mesajul_nostru', mesajul, 100);
+        }
+
+       
+
+
+        document.cookie = 'tara=rusia;';
+
+     
+
+        setCookie('mancare', 'pizza', 7);
+
+        if(getCookie('mesajul_nostru') && getCookie('mesajul_nostru') != ''){
+            document.getElementById('div-prezentare-mesaj').innerHTML = getCookie('mesajul_nostru');
+        }
+
+    </script>
+
+</body>
+
+</html>

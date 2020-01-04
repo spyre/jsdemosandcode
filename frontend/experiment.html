@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- import jQuery = $ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id='titlu-pag'>Produse</h2>
+
+    <ul id="lista-produse">
+
+    </ul>
+
+    <script>
+
+
+        $('#titlu-pag').append(' de pe server');
+
+        var produseleVGL = []; // variabila globala locala
+
+
+        console.log('STEP 1: ', produseleVGL);
+        $.ajax({
+            url: 'http://localhost:3000/products',
+            success: function (produseServer) {
+                console.log('PRODUSELE SUNT: ', produseServer);
+                // for(var ps of produseServer){
+                //     $('#lista-produse').append(`<li>${ps.id} NUME: ${ps.name} COSTA: ${ps.price}</li>`);
+                //     // document.getElementById('lista-produse').innerHTML += `<li>${ps.id} NUME: ${ps.name} COSTA: ${ps.price}</li>`;
+                // }
+
+                produseleVGL = produseServer;
+                console.log('STEP 2: ', produseleVGL);
+                afisareProduseLista(produseleVGL);
+
+            }
+        });
+
+        console.log('STEP 3: ', produseleVGL);
+
+        function afisareProduseLista(produseParametru) {
+            for (var ps of produseParametru) {
+                $('#lista-produse').append(`<li>${ps.id} NUME: ${ps.name} COSTA: ${ps.price}</li>`);
+                // document.getElementById('lista-produse').innerHTML += `<li>${ps.id} NUME: ${ps.name} COSTA: ${ps.price}</li>`;
+            }
+        }
+
+        // afisareProduseLista(produseleVGL); // daca am apela aici, exista riscul ca $.ajax request-ul sa nu se 
+        // fi terminat inca => produseVGL pe care-l trimitem ca parametru catre afisareProduseLista
+        // va fi un array gol!
+
+        // for (var ps of produseleVGL) {
+        //     $('#lista-produse').append(`<li>${ps.id} NUME: ${ps.name} COSTA: ${ps.price}</li>`);
+        //     // document.getElementById('lista-produse').innerHTML += `<li>${ps.id} NUME: ${ps.name} COSTA: ${ps.price}</li>`;
+        // }
+
+    </script>
+</body>
+
+</html>

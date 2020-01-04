@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Xbox",
+      "price": 300
+    },
+    {
+      "id": 2,
+      "name": "PS5",
+      "price": 400
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Alice",
+      "password": "highschool"
+    },
+    {
+      "username": "vasile",
+      "password": "3333",
+      "id": 6
+    },
+    {
+      "username": "bill",
+      "password": "1324",
+      "id": 7
+    },
+    {
+      "username": "mill",
+      "password": "3125",
+      "id": 8
+    }
+  ]
+}
