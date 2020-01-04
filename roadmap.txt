@@ -20,3 +20,13 @@
 
 ---- git howto ----
 https://git-scm.com/downloads 
+
+
+- in folder-ul pe care vrem sa-l transformam intr-un repository:
+    git init
+
+git status - ce fisiere sunt monitorizate (verde), ce fisiere sunt ignorate (rosu)
+
+git add roadmap.txt
+git add .    # adauga toate fisierele si directoarele 
+git commit -m "primul save"    # crearea unui backup
