@@ -16,7 +16,8 @@
 - exceptions (try - catch)
 - 1 framework of choice - Angular / Vue / React 
 - security     
-
+- clojures
+- XPath
 
 ---- git howto ----
 STEP 1: https://git-scm.com/downloads 

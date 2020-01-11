@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Demo 1</h2>
+
+    <script>
+        class Produs {
+            constructor(denumire, pret) {
+                this.denumire = denumire;
+                this.pret = pret;
+            }
+        }
+
+        var p1 = new Produs('xbox', 3000);
+        var p2 = new Produs('ps4', 2000);
+        var p3 = new Produs('tastatura', 300);
+        var p4 = new Produs('ps3', 1500);
+        var p5 = new Produs('ps5', 3500);
+        var p6 = new Produs('ps one', 300);
+
+        var produse = [p1, p2, p3, p4, p5, p6];
+
+        console.log('produsele: ', produse);
+        // var preturi = produse.map( x => x.pret);
+        var preturi = produse.map(function(x){ return x.pret});
+        var denumirile = produse.map(function(x){return x.denumire})
+        console.log('preturile: ', preturi);
+        console.log('denumirile: ', denumirile);
+
+        // denumirile produselor cu pretul peste 500
+        var denumiriProduseScumpe = produse.filter(x => x.pret > 500).map(x => x.denumire);
+        console.log('denumiri produse scumpe: ', denumiriProduseScumpe)
+
+        // denumirile produselor cu pretul peste 500, denumiri continand 'ps'
+        // ['ps4', 'ps3', 'ps5']
+        
+        var text = "Salut lume pizza ce faina e vremea";
+        console.log(text.indexOf('shaorma'));
+        var denumiriProdusePSScumpe = produse.filter(x => x.pret > 500).filter(x => x.denumire.indexOf('ps') != -1).map(x => x.denumire);
+        console.log('PS-uri scumpe: ', denumiriProdusePSScumpe);
+
+
+        
+    </script>
+</body>
+
+</html>
